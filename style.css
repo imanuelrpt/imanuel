@@ -1,0 +1,155 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap');
+
+:root {
+    --bg-black: #0D0D0D;
+    --accent-yellow: #FFD700;
+    --text-white: #FFFFFF;
+    --text-gray: #A0A0A0;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Outfit', sans-serif;
+    background-color: var(--bg-black);
+    color: var(--text-white);
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--bg-black);
+}
+
+::-webkit-scrollbar-thumb {
+    background: #333;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--accent-yellow);
+}
+
+/* Typography Utility */
+.text-accent {
+    color: var(--accent-yellow);
+}
+
+.bg-accent {
+    background-color: var(--accent-yellow);
+}
+
+.border-accent {
+    border-color: var(--accent-yellow);
+}
+
+/* Animations */
+.fade-up {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.fade-up.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.fade-in {
+    opacity: 0;
+    transition: opacity 1s ease-out;
+}
+
+.fade-in.visible {
+    opacity: 1;
+}
+
+/* Modal Styling */
+#modal-overlay {
+    backdrop-filter: blur(10px);
+    background-color: rgba(0, 0, 0, 0.85);
+}
+
+.modal-content {
+    animation: modal-appear 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes modal-appear {
+    from {
+        opacity: 0;
+        transform: scale(0.9) translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+/* Grid Card Styling */
+.card-border {
+    border: 1px solid rgba(255, 215, 0, 0.1);
+    transition: border-color 0.3s ease;
+}
+
+/* Navbar blur */
+.navbar-glass {
+    backdrop-filter: blur(15px);
+    background-color: rgba(13, 13, 13, 0.8);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* Skills Badge */
+.skill-badge {
+    background: rgba(255, 215, 0, 0.05);
+    border: 1px solid rgba(255, 215, 0, 0.2);
+    color: var(--accent-yellow);
+}
+
+/* Button Styling (Manual - No Hover Effects) */
+.btn-primary {
+    background-color: var(--accent-yellow);
+    color: #000;
+    font-weight: 600;
+    padding: 0.75rem 1.5rem;
+    display: inline-block;
+    transition: transform 0.2s ease;
+}
+
+.btn-primary:active {
+    transform: scale(0.95);
+}
+
+/* Grid layout fix for projects */
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+/* Image container */
+/* Mobile Menu Links */
+.mobile-nav-link {
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    color: var(--text-white);
+    letter-spacing: 0.1em;
+}
+
+.mobile-nav-link:active {
+    color: var(--accent-yellow);
+    transform: scale(1.1);
+}
+
+/* Ensure button stays on top */
+#mobile-menu-btn {
+    position: relative;
+    z-index: 60;
+}
