@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }, observerOptions);
 
-    document.querySelectorAll('.fade-up, .fade-in').forEach(el => {
+    document.querySelectorAll('.fade-up, .fade-in, .slide-up').forEach(el => {
         observer.observe(el);
     });
 
