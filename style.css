@@ -84,14 +84,78 @@ body {
     opacity: 1;
 }
 
+.ppt-slide-in-left,
+.ppt-slide-in-right,
+.ppt-slide-in-up,
+.ppt-zoom-in {
+    opacity: 0;
+    transform-style: preserve-3d;
+    backface-visibility: hidden;
+    transition: transform 0.95s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.95s ease;
+}
+
+.ppt-slide-in-left {
+    transform: translateX(-90px) rotateY(16deg) scale(0.96);
+}
+
+.ppt-slide-in-right {
+    transform: translateX(90px) rotateY(-16deg) scale(0.96);
+}
+
+.ppt-slide-in-up {
+    transform: translateY(90px) rotateX(16deg) scale(0.96);
+}
+
+.ppt-zoom-in {
+    transform: scale(0.92) translateY(18px);
+}
+
+.ppt-slide-in-left.visible,
+.ppt-slide-in-right.visible,
+.ppt-slide-in-up.visible,
+.ppt-zoom-in.visible {
+    opacity: 1;
+    transform: none;
+}
+
 /* Modal Styling */
 #modal-overlay {
-    backdrop-filter: blur(10px);
+    display: none;
     background-color: rgba(0, 0, 0, 0.85);
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem;
+    overflow-y: auto;
+}
+
+#modal-overlay.active {
+    display: flex;
+}
+
+#modal-overlay.hidden {
+    display: none !important;
 }
 
 .modal-content {
     animation: modal-appear 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    width: 100%;
+    max-width: 1024px;
+    max-height: calc(100vh - 3rem);
+    overflow: hidden;
+    border-radius: 1.25rem;
+    box-shadow: 0 36px 90px rgba(0, 0, 0, 0.55);
+}
+
+.modal-content.hidden {
+    display: none !important;
+}
+
+@media (max-width: 768px) {
+    .modal-content {
+        max-width: 100%;
+        max-height: calc(100vh - 1.5rem);
+        border-radius: 1rem;
+    }
 }
 
 @keyframes modal-appear {
@@ -105,10 +169,259 @@ body {
     }
 }
 
+/* Modal Carousel Styles */
+.modal-carousel-wrapper {
+    position: relative;
+    width: 100%;
+    background: #111;
+    padding: 1.5rem 1.25rem 1rem;
+}
+
+.modal-carousel-track-container {
+    min-height: 360px;
+    height: auto;
+}
+
+.modal-carousel-track {
+    display: flex;
+    gap: 0.5rem;
+    width: 100%;
+}
+
+.modal-carousel-item {
+    flex: 0 0 100%;
+    min-width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 360px;
+}
+
+.modal-carousel-item img {
+    width: auto;
+    max-width: 100%;
+    height: auto;
+    max-height: 55vh;
+    object-fit: contain;
+    border-radius: 1rem;
+}
+
+.modal-carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255, 215, 0, 0.08);
+    border: 1px solid rgba(255, 215, 0, 0.2);
+    width: 2.75rem;
+    height: 2.75rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0.5rem;
+    transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.modal-carousel-btn:hover {
+    background: rgba(255, 215, 0, 0.18);
+    transform: translateY(-50%) scale(1.05);
+}
+
+.modal-carousel-dots {
+    position: absolute;
+    bottom: 0.75rem;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 0.5rem;
+}
+
+.modal-dot {
+    width: 0.5rem;
+    height: 0.5rem;
+    border-radius: 50%;
+    background: rgba(255, 215, 0, 0.25);
+    margin: 0 0.25rem;
+}
+
+.modal-dot.active {
+    background: var(--accent-yellow);
+    width: 0.9rem;
+    border-radius: 0.25rem;
+}
+
 /* Grid Card Styling */
 .card-border {
     border: 1px solid rgba(255, 215, 0, 0.1);
-    transition: border-color 0.3s ease;
+    transition: border-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    border-radius: 1.25rem;
+    overflow: hidden;
+    background: rgba(13, 13, 13, 0.85);
+    box-shadow: 0 18px 45px rgba(0, 0, 0, 0.3);
+}
+
+.project-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
+    cursor: pointer;
+    transform: translateY(0);
+}
+
+.project-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(255,255,255,0.02) 0%, rgba(0,0,0,0.45) 60%, rgba(0,0,0,0.7) 100%);
+    opacity: 0;
+    transition: opacity 0.35s ease;
+    pointer-events: none;
+}
+
+.project-card:hover {
+    transform: translateY(-6px);
+    border-color: rgba(255, 215, 0, 0.25);
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.35);
+}
+
+.project-card:hover::before {
+    opacity: 1;
+}
+
+.project-card:hover img {
+    transform: scale(1.08);
+}
+
+.project-showcase {
+    display: grid;
+    grid-template-columns: 1.6fr 1fr;
+    grid-auto-rows: minmax(220px, auto);
+    gap: 2rem;
+    align-items: start;
+}
+
+.project-highlights {
+    display: grid;
+    gap: 1.5rem;
+}
+
+.project-feature,
+.project-mini {
+    position: relative;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 2rem;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 30px 90px rgba(0, 0, 0, 0.35);
+    min-height: 300px;
+    transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
+}
+
+.project-feature:hover,
+.project-mini:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 38px 110px rgba(0, 0, 0, 0.42);
+    border-color: rgba(255, 215, 0, 0.22);
+}
+
+.project-feature {
+    min-height: 520px;
+    display: flex;
+    align-items: flex-end;
+    padding-bottom: 1rem;
+}
+
+.project-mini {
+    min-height: 260px;
+}
+
+.project-feature-content {
+    max-width: 100%;
+}
+
+.project-feature::before,
+.project-mini::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(13, 13, 13, 0.12), rgba(13, 13, 13, 0.95));
+    pointer-events: none;
+}
+
+.project-feature-content,
+.project-mini-info {
+    position: relative;
+    z-index: 1;
+    color: #f5f5f5;
+}
+
+.project-feature-content h3,
+.project-mini-info h4 {
+    text-shadow: 0 18px 35px rgba(0, 0, 0, 0.35);
+}
+
+.project-feature-content p,
+.project-mini-info p {
+    text-shadow: 0 10px 24px rgba(0, 0, 0, 0.2);
+}
+
+.project-mini-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    height: 100%;
+    background: linear-gradient(180deg, rgba(13, 13, 13, 0.18) 0%, rgba(13, 13, 13, 0.85) 100%);
+}
+
+.project-mini-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1rem;
+}
+
+@media (max-width: 1024px) {
+    .project-showcase {
+        grid-template-columns: 1fr;
+    }
+
+    .project-feature {
+        min-height: 420px;
+    }
+}
+
+@media (max-width: 640px) {
+    .project-feature {
+        border-radius: 1.5rem;
+    }
+
+    .project-mini {
+        border-radius: 1.5rem;
+    }
+}
+
+.project-card img {
+    transition: transform 0.6s ease;
+}
+
+.project-card .p-6 {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1.5rem;
+}
+
+.project-card h3 {
+    font-size: 1.75rem;
+}
+
+.project-card p {
+    color: #c0c0c0;
+}
+
+.project-card span {
+    letter-spacing: 0.2em;
 }
 
 /* Navbar blur */
@@ -170,9 +483,91 @@ body {
 
 /* Grid layout fix for projects */
 .project-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.project-row {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 2rem;
+}
+
+.project-row-bottom {
+    justify-content: center;
+}
+
+/* Projects Carousel Styling */
+.projects-carousel-wrapper {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+}
+
+.projects-carousel-track {
+    display: flex;
+    gap: 2rem;
+    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    width: 100%;
+}
+
+.carousel-project-item {
+    flex: 0 0 100%;
+    min-width: 0;
+}
+
+@media (min-width: 768px) {
+    .carousel-project-item {
+        flex: 0 0 calc(50% - 1rem);
+    }
+}
+
+@media (min-width: 1024px) {
+    .carousel-project-item {
+        flex: 0 0 calc(33.333% - 1.34rem);
+    }
+}
+
+/* Carousel Navigation Buttons */
+.carousel-btn {
+    background: rgba(255, 215, 0, 0.05);
+    border: 1px solid rgba(255, 215, 0, 0.3);
+    color: var(--accent-yellow);
+    width: 2.5rem;
+    height: 2.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0.25rem;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.carousel-btn:hover {
+    background: rgba(255, 215, 0, 0.1);
+    border-color: var(--accent-yellow);
+}
+
+.carousel-btn:active {
+    transform: scale(0.95);
+}
+
+/* Carousel Dots */
+.carousel-dot {
+    width: 0.5rem;
+    height: 0.5rem;
+    border-radius: 50%;
+    background: rgba(255, 215, 0, 0.3);
+    border: 1px solid rgba(255, 215, 0, 0.2);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.carousel-dot.active {
+    background: var(--accent-yellow);
+    width: 1.5rem;
+    border-radius: 0.25rem;
 }
 
 /* Image container */
@@ -258,3 +653,76 @@ body {
     position: relative;
     z-index: 60;
 }
+
+/* ===== Section Slide-Show Entrance Animations ===== */
+.section-slide-show {
+    opacity: 0;
+    transform-style: preserve-3d;
+    backface-visibility: hidden;
+    will-change: transform, opacity;
+    transition: transform 1.2s cubic-bezier(0.22, 1, 0.36, 1), opacity 1s ease;
+}
+
+.section-slide-show.visible {
+    opacity: 1;
+    transform: none;
+}
+
+/* Slide from Left */
+.section-slide-left {
+    transform: translateX(-120px) rotateY(12deg) scale(0.95);
+    transform-origin: left center;
+}
+
+/* Slide from Right */
+.section-slide-right {
+    transform: translateX(120px) rotateY(-12deg) scale(0.95);
+    transform-origin: right center;
+}
+
+/* Slide from Up */
+.section-slide-up {
+    transform: translateY(100px) rotateX(8deg) scale(0.95);
+    transform-origin: top center;
+}
+
+/* Slide from Down */
+.section-slide-down {
+    transform: translateY(-100px) rotateX(-8deg) scale(0.95);
+    transform-origin: bottom center;
+}
+
+/* Zoom In */
+.section-zoom-in {
+    transform: scale(0.7) translateY(30px);
+    filter: blur(4px);
+}
+
+.section-zoom-in.visible {
+    filter: blur(0);
+}
+
+/* Flip In */
+.section-flip-in {
+    transform: rotateX(20deg) translateY(60px) scale(0.9);
+    transform-origin: top center;
+}
+
+/* Staggered children inside slide-show sections */
+.section-slide-show .stagger-child {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.section-slide-show.visible .stagger-child {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.section-slide-show.visible .stagger-child:nth-child(1) { transition-delay: 0.1s; }
+.section-slide-show.visible .stagger-child:nth-child(2) { transition-delay: 0.2s; }
+.section-slide-show.visible .stagger-child:nth-child(3) { transition-delay: 0.3s; }
+.section-slide-show.visible .stagger-child:nth-child(4) { transition-delay: 0.4s; }
+.section-slide-show.visible .stagger-child:nth-child(5) { transition-delay: 0.5s; }
+.section-slide-show.visible .stagger-child:nth-child(6) { transition-delay: 0.6s; }
