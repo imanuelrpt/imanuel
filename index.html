@@ -54,7 +54,7 @@
 
         <!-- Hero Section -->
         <section id="hero" class="min-h-screen flex items-center justify-center px-6 pt-20">
-            <div class="max-w-4xl text-center fade-up">
+            <div class="max-w-4xl text-center section-slide-show section-zoom-in">
                 <p class="text-accent tracking-[0.3em] uppercase text-sm mb-4">Portfolio 2026</p>
                 <h1 class="text-6xl md:text-8xl font-bold mb-6 tracking-tighter leading-none">
                     Imanuel <span class="text-accent">Rodericus</span>
@@ -76,7 +76,7 @@
 
         <!-- About Me Section -->
         <section id="about" class="py-24 px-6 bg-[#111111]">
-            <div class="max-w-6xl mx-auto">
+            <div class="max-w-6xl mx-auto section-slide-show section-slide-right">
                 <div class="grid md:grid-cols-2 gap-16 items-center">
                     <div class="fade-up order-2 md:order-1">
                         <h2 class="text-4xl font-bold mb-8">About <span class="text-accent">Me</span></h2>
@@ -105,7 +105,7 @@
 
         <!-- Project Section -->
         <section id="projects" class="py-24 px-6">
-            <div class="max-w-7xl mx-auto">
+            <div class="max-w-7xl mx-auto section-slide-show section-slide-up">
                 <div class="mb-16 fade-up">
                     <h2 class="text-4xl font-bold mb-4 uppercase tracking-tighter">Featured <span
                             class="text-accent">Projects</span></h2>
@@ -113,57 +113,98 @@
                 </div>
 
                 <div class="project-grid">
-                    <!-- Project 1 -->
-                    <div class="card-border bg-[#151515] overflow-hidden slide-up cursor-pointer project-card"
-                        data-project="mosque">
-                        <div class="aspect-video bg-[#1a1a1a] overflow-hidden">
-                            <img src="images/image2.png" alt="Mosque Treasury"
-                                class="w-full h-full object-cover opacity-80 transition-opacity">
+                    <div class="project-row project-row-top">
+                        <!-- Project 1 -->
+                        <div class="card-border bg-[#151515] overflow-hidden slide-up cursor-pointer project-card"
+                            data-project="GreenBite">
+                            <div class="aspect-video bg-[#1a1a1a] overflow-hidden">
+                                <img src="images/GB 1.jpeg" alt="GreenBite-Catering"
+                                    class="w-full h-full object-cover opacity-80 transition-opacity">
+                            </div>
+                            <div class="p-6">
+                                <h3 class="text-2xl font-bold mb-2">GreenBite Catering Web</h3>
+                                <p class="text-gray-400 mb-4 line-clamp-2">A modern catering website designed to help customers explore healthy menus, place orders, and access catering service information through a clean and professional interface.</p>
+                                <span class="text-accent text-xs tracking-widest uppercase">Web Development</span>
+                            </div>
                         </div>
-                        <div class="p-6">
-                            <h3 class="text-2xl font-bold mb-2">Mosque Treasury Web</h3>
-                            <p class="text-gray-400 mb-4 line-clamp-2">A structured financial recording system with
-                                automated transaction calculation.</p>
-                            <span class="text-accent text-xs tracking-widest uppercase">Financial Management</span>
-                        </div>
-                    </div>
 
-                    <!-- Project 2 -->
+                        <!-- Project 2 -->
                     <div class="card-border bg-[#151515] overflow-hidden slide-up cursor-pointer project-card"
-                        data-project="elearning" style="transition-delay: 0.1s;">
+                        data-project="GymElite" style="transition-delay: 0.1s;">
                         <div class="aspect-video bg-[#1a1a1a] overflow-hidden">
-                            <img src="images/image1.png" alt="E-Learning"
+                            <img src="images/GYM 1.jpeg" alt="GymElite"
                                 class="w-full h-full object-cover opacity-80 transition-opacity">
                         </div>
                         <div class="p-6">
-                            <h3 class="text-2xl font-bold mb-2">E-Learning Platform</h3>
-                            <p class="text-gray-400 mb-4 line-clamp-2">A digital learning system for structured material
-                                and user management.</p>
-                            <span class="text-accent text-xs tracking-widest uppercase">Educational Tech</span>
+                            <h3 class="text-2xl font-bold mb-2">GymElite Fitness Web</h3>
+                            <p class="text-gray-400 mb-4 line-clamp-2">A fitness and gym website featuring workout programs, membership plans, class schedules, and trainer information with a sporty and interactive design to enhance visitor engagement.</p>
+                            <span class="text-accent text-xs tracking-widest uppercase">Web Development</span>
                         </div>
                     </div>
 
                     <!-- Project 3 -->
                     <div class="card-border bg-[#151515] overflow-hidden slide-up cursor-pointer project-card"
-                        data-project="ai_disease" style="transition-delay: 0.2s;">
+                        data-project="Matcha&Co" style="transition-delay: 0.2s;">
                         <div class="aspect-video bg-[#1a1a1a] overflow-hidden">
-                            <img src="images/image3.png" alt="ML Disease Detection"
+                            <img src="images/Matcha 1.jpeg" alt="Matcha&Co"
                                 class="w-full h-full object-cover opacity-80 transition-opacity">
                         </div>
                         <div class="p-6">
-                            <h3 class="text-2xl font-bold mb-2">ML Disease Detection</h3>
-                            <p class="text-gray-400 mb-4 line-clamp-2">Machine learning implementation for automated
-                                health data classification.</p>
-                            <span class="text-accent text-xs tracking-widest uppercase">Artificial Intelligence</span>
+                            <h3 class="text-2xl font-bold mb-2">Matcha&Co Web</h3>
+                            <p class="text-gray-400 mb-4 line-clamp-2">A matcha beverage brand website with an aesthetic and modern design focused on visual experience, product catalog presentation, and seamless online ordering for customers.</p>
+                            <span class="text-accent text-xs tracking-widest uppercase">Web Development</span>
                         </div>
                     </div>
+
+                    <!-- Project 4 -->
+                    <div class="card-border bg-[#151515] overflow-hidden slide-up cursor-pointer project-card"
+                        data-project="TravelMate" style="transition-delay: 0.3s;">
+                        <div class="aspect-video bg-[#1a1a1a] overflow-hidden">
+                            <img src="images/Scanner 1.jpeg" alt="TravelMate"
+                                class="w-full h-full object-cover opacity-80 transition-opacity">
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-2xl font-bold mb-2">Check SkinHealth Web</h3>
+                            <p class="text-gray-400 mb-4 line-clamp-2">Check Skin Health is a website that helps users check their skin health through digital analysis and provides information along with skincare recommendations based on the examination results.</p>
+                            <span class="text-accent text-xs tracking-widest uppercase">Web Development</span>
+                        </div>
+                    </div>
+
+                    <!-- Project 5 -->
+                    <div class="card-border bg-[#151515] overflow-hidden slide-up cursor-pointer project-card"
+                        data-project="EduPortal" style="transition-delay: 0.4s;">
+                        <div class="aspect-video bg-[#1a1a1a] overflow-hidden">
+                            <img src="images/resume 1.jpeg" alt="EduPortal"
+                                class="w-full h-full object-cover opacity-80 transition-opacity">
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-2xl font-bold mb-2">ResumeGen</h3>
+                            <p class="text-gray-400 mb-4 line-clamp-2">ResumeGenerator (ResumeGen) is a website that helps users create professional resumes quickly and easily with customizable templates and simple editing features.</p>
+                            <span class="text-accent text-xs tracking-widest uppercase">Web Development</span>
+                        </div>
+                    </div>
+
+                    <!-- Project 6 -->
+                    <div class="card-border bg-[#151515] overflow-hidden slide-up cursor-pointer project-card"
+                        data-project="CityPulse" style="transition-delay: 0.5s;">
+                        <div class="aspect-video bg-[#1a1a1a] overflow-hidden">
+                            <img src="images/SIPALA 1.jpeg" alt="CityPulse"
+                                class="w-full h-full object-cover opacity-80 transition-opacity">
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-2xl font-bold mb-2">SIPALA</h3>
+                            <p class="text-gray-400 mb-4 line-clamp-2">SIPALA is an online public complaint management website that enables people to submit reports or complaints digitally, making the complaint process faster, easier, and more efficient.</p>
+                            <span class="text-accent text-xs tracking-widest uppercase">Web Development</span>
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </section>
 
         <!-- Certificate Section -->
         <section id="certificates" class="py-24 px-6 bg-[#0f0f0f]">
-            <div class="max-w-7xl mx-auto">
+            <div class="max-w-7xl mx-auto section-slide-show section-flip-in">
                 <div class="mb-16 fade-up">
                     <h2 class="text-4xl font-bold mb-4 uppercase tracking-tighter">Certifications</h2>
                     <div class="h-1 w-20 bg-accent"></div>
@@ -222,7 +263,7 @@
 
         <!-- Services Section -->
         <section id="services" class="py-24 px-6 bg-[#0D0D0D]">
-            <div class="max-w-7xl mx-auto">
+            <div class="max-w-7xl mx-auto section-slide-show section-slide-left">
                 <div class="mb-16 fade-up">
                     <h2 class="text-4xl font-bold mb-4 uppercase tracking-tighter">My <span
                             class="text-accent">Services</span></h2>
@@ -283,13 +324,13 @@
 
         <!-- Expertise & Skills Section (Carousel) -->
         <section id="skills" class="py-24 bg-[#0D0D0D] overflow-hidden">
-            <div class="max-w-7xl mx-auto px-6 mb-16 text-center">
+            <div class="max-w-7xl mx-auto px-6 mb-16 text-center section-slide-show section-zoom-in">
                 <h2 class="text-4xl font-bold mb-4 uppercase tracking-tighter">Expertise & <span
                         class="text-accent">Skills</span></h2>
                 <div class="h-1 w-20 bg-accent mx-auto"></div>
             </div>
 
-            <div class="space-y-12">
+            <div class="space-y-12 section-slide-show section-slide-up">
                 <!-- Hard Skills (Left) -->
                 <div class="carousel-wrapper">
                     <div class="carousel-track scroll-left">
@@ -344,8 +385,8 @@
 
         <!-- Contact Section -->
         <section id="contact" class="py-24 px-6 bg-[#111]">
-            <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-20 items-center">
-                <div class="fade-up">
+            <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-20 items-center section-slide-show section-slide-right">
+                <div class="fade-up stagger-child">
                     <h2 class="text-5xl font-bold mb-8 uppercase tracking-tighter">Get in <span
                             class="text-accent">Touch</span></h2>
                     <p class="text-gray-400 mb-12 text-lg">
@@ -364,7 +405,7 @@
                     </div>
                 </div>
 
-                <div class="fade-up">
+                <div class="fade-up stagger-child">
                     <div class="flex flex-col space-y-6">
                         <a href="https://www.linkedin.com/in/imanuel-rodericus-parlindungan-tempo-97783b289/"
                             class="text-3xl font-bold tracking-tighter border-b border-gray-800 pb-4 transition-colors active:text-accent"
@@ -393,14 +434,37 @@
         <!-- Project Modal Content -->
         <div id="project-modal"
             class="modal-content bg-[#151515] w-full max-w-4xl max-h-[90vh] overflow-y-auto rounded-lg hidden">
-            <div class="img-container">
-                <img id="modal-project-img" src="" alt="Project Preview" class="w-full h-full object-cover">
-            </div>
-            <div class="p-8">
+            <div class="p-6">
                 <div class="flex justify-between items-start mb-6">
                     <h2 id="modal-project-title" class="text-4xl font-bold">Project Title</h2>
                     <button id="close-project" class="text-accent text-4xl leading-none">&times;</button>
                 </div>
+            </div>
+
+            <!-- Modal Carousel -->
+            <div class="modal-carousel-wrapper w-full bg-[#1a1a1a]">
+                <button id="modal-carousel-prev" class="modal-carousel-btn absolute left-4 top-1/2 -translate-y-1/2 z-50" aria-label="Previous image">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+                    </svg>
+                </button>
+
+                <div class="modal-carousel-track-container relative overflow-hidden">
+                    <div id="modal-carousel-track" class="modal-carousel-track flex transition-transform duration-500">
+                        <!-- images injected here -->
+                    </div>
+                </div>
+
+                <button id="modal-carousel-next" class="modal-carousel-btn absolute right-4 top-1/2 -translate-y-1/2 z-50" aria-label="Next image">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                    </svg>
+                </button>
+
+                <div id="modal-carousel-dots" class="flex justify-center gap-2 p-4 bg-transparent"></div>
+            </div>
+
+            <div class="p-8">
                 <div id="modal-project-desc" class="text-gray-400 space-y-4 mb-8">
                     <!-- Project details populates here -->
                 </div>
